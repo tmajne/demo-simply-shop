@@ -1,0 +1,14 @@
+index:
+    path: /
+    controller: App\Application\Controller\DefaultController::index
+
+admin.create.product:
+    path: /admin/new-product
+    controller: App\Application\Controller\Admin\ProductController::createProduct
+
+login:
+    path: /login
+    controller: App\Application\Controller\SecurityController::login
+
+logout:
+    path: /logout

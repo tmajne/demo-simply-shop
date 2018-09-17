@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+
+{% block app_content %}
+
+    <h4>Products: <span class="badge badge-secondary">{{ pagination.getTotalItemCount }}</span></h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        {# table body #}
+        {% for product in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description|slice(0, 40) }}...</td>
+                <td>{{ product.price / 100 }} {{ product.currency }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+{% endblock app_content %}

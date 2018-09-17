@@ -1,0 +1,41 @@
+App\Domain\Entity\Product:
+    type: entity
+    table: product
+    repositoryClass: App\Infrastructure\Repository\ProductRepository
+
+    id:
+        id:
+            type: integer
+            options:
+                unsigned: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        identity:
+            type: guid
+            column: identity
+            nullable: false
+            unique: true
+
+        name:
+            type: string
+            column: name
+            length: 65
+            nullable: false
+
+        description:
+            type: text
+            column: description
+            nullable: true
+
+        price:
+            type: integer
+            column: price
+            nullable: false
+
+        currency:
+            type: string
+            column: currency
+            length: 3
+            nullable: false
